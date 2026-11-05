@@ -102,6 +102,47 @@ index=checkmk sourcetype=checkmk:alert severity=critical
 index=checkmk sourcetype=checkmk:history log_type="SERVICE ALERT"
 ```
 
+## Sample data (Eventgen)
+
+Eventgen is still the right way to ship **live demo data inside a Splunk TA**.
+[SA-Eventgen 8.2.1](https://splunkbase.splunk.com/app/1924) (9 Jul 2025) works with
+Splunk 9.1–10.7. Install Eventgen, then enable generation only on a lab instance:
+
+```
+# $SPLUNK_HOME/etc/apps/TA-checkmk/local/eventgen.conf
+[global]
+disabled = false
+```
+
+`default/eventgen.conf` is **disabled** so production installs emit nothing.
+There is no HEC token in the add-on; output is Splunk’s spool directory.
+
+| Sample | Sourcetype |
+| --- | --- |
+| `checkmk_alert.sample` | `checkmk:alert` |
+| `checkmk_ec.sample` | `checkmk:ec` |
+| `checkmk_status.sample` | `checkmk:status` |
+| `checkmk_history.sample` | `checkmk:history` |
+| `checkmk_notify.sample` | `checkmk:notify` |
+| `checkmk_mknotifyd.sample` | `checkmk:mknotifyd` |
+| `checkmk_cmc.sample` | `checkmk:cmc` |
+| `checkmk_web.sample` | `checkmk:web` |
+| `checkmk_security.sample` | `checkmk:security` |
+| `checkmk_eventconsole.sample` | `checkmk:eventconsole` |
+| `checkmk_alerts_handler.sample` | `checkmk:alerts_handler` |
+| `checkmk_dcd.sample` | `checkmk:dcd` |
+| `checkmk_liveproxyd.sample` | `checkmk:liveproxyd` |
+| `checkmk_apache_access.sample` | `apache:access:combined` |
+| `checkmk_apache_error.sample` | `apache:error` |
+
+Tokens rotate hosts, services, contacts, IPv4 addresses, and timestamps.
+
+For **CI field tests** against Docker Splunk, prefer
+[pytest-splunk-addon](https://splunk.github.io/pytest-splunk-addon/sample_generator/)
+(`pytest-splunk-addon-data.conf`) instead of SA-Eventgen. From addon 1.3.0 that
+plugin ingests samples itself. Eventgen remains the in-app generator for a
+human lab.
+
 ## Optional REST poller
 
 On a Heavy Forwarder, enable `[checkmk_rest://<name>]` as documented in

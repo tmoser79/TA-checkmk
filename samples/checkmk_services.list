@@ -1,0 +1,10 @@
+Filesystem /
+Memory
+CPU utilization
+HTTP example.com
+PostgreSQL
+Check_MK Agent
+NTP Time
+SSH
+Systemd Service apache2
+Interface eth0

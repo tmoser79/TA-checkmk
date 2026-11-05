@@ -1,0 +1,5 @@
+2024-11-05 11:50:00 [20] [cmk.mkeventd] started Event Console on site mysite
+2024-11-05 11:50:12 [20] [cmk.mkeventd] new event id=@@id host=@@host rule=oom_killer message='kernel: Out of memory'
+2024-11-05 11:51:03 [20] [cmk.mkeventd] event id=@@id host=@@host counted 12 matching messages
+2024-11-05 11:52:00 [20] [cmk.mkeventd] archive event id=@@id host=@@host
+2024-11-05 11:53:14 [30] [cmk.mkeventd] dropping UDP syslog packet, queue full

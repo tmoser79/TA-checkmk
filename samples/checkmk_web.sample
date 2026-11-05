@@ -1,0 +1,5 @@
+2024-11-05 11:40:01 [20] [cmk.gui] login user=@@contact
+2024-11-05 11:40:12 [20] [cmk.gui.watolib] activate changes user=@@contact sites=mysite
+2024-11-05 11:41:03 [20] [cmk.gui] REST GET /check_mk/api/1.0/domain-types/service/collections/all user=automation
+2024-11-05 11:42:18 [30] [cmk.gui] slow view view_name=service duration=3.2s host=@@host
+2024-11-05 11:43:00 [20] [cmk.gui] logout user=@@contact

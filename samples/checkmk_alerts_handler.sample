@@ -1,0 +1,4 @@
+2024-11-05 12:00:01 [20] [cmk.base.alert_handling] ALERT HANDLER STARTED host=@@host handler=restart_nginx
+2024-11-05 12:00:04 [20] [cmk.base.alert_handling] ALERT HANDLER STOPPED host=@@host handler=restart_nginx state=OK
+2024-11-05 12:01:10 [20] [cmk.base.alert_handling] ALERT HANDLER STARTED host=@@host service=@@service handler=cleanup_tmp
+2024-11-05 12:01:12 [30] [cmk.base.alert_handling] ALERT HANDLER STOPPED host=@@host service=@@service handler=cleanup_tmp state=TEMPORARY_FAILURE

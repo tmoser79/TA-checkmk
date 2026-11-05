@@ -1,0 +1,5 @@
+2024-11-05 09:12:44 [20] [cmk.gui.security] login success user=@@contact src=@@ip
+2024-11-05 09:40:01 [30] [cmk.gui.security] login failure user=unknown src=@@ip
+2024-11-05 10:01:17 [20] [cmk.gui.security] automation user used user=automation path=/check_mk/api/1.0/domain-types/service/collections/all
+2024-11-05 10:15:09 [20] [cmk.gui.security] password changed user=@@contact
+2024-11-05 10:22:44 [30] [cmk.gui.security] two-factor challenge failed user=@@contact src=@@ip

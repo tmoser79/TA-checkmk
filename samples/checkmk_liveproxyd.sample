@@ -1,0 +1,4 @@
+2024-11-05 12:20:00 [20] [cmk.liveproxyd] channel mysite -> remote01 connected
+2024-11-05 12:20:15 [20] [cmk.liveproxyd] heartbeat ok site=remote01
+2024-11-05 12:21:00 [30] [cmk.liveproxyd] site remote02 connection lost, reconnecting
+2024-11-05 12:21:08 [20] [cmk.liveproxyd] site remote02 reconnected

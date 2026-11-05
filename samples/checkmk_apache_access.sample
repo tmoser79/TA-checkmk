@@ -1,0 +1,5 @@
+@@ip - @@contact [05/Nov/2024:11:35:12 +0000] "GET /mysite/check_mk/index.py HTTP/1.1" 200 8120 "-" "Mozilla/5.0"
+@@ip - automation [05/Nov/2024:11:35:13 +0000] "GET /mysite/check_mk/api/1.0/domain-types/host/collections/all HTTP/1.1" 200 20480 "-" "python-requests/2.32.0"
+@@ip - @@contact [05/Nov/2024:11:35:14 +0000] "POST /mysite/check_mk/login.py HTTP/1.1" 302 0 "-" "Mozilla/5.0"
+@@ip - @@contact [05/Nov/2024:11:36:01 +0000] "GET /mysite/check_mk/view.py?view_name=service&host=@@host HTTP/1.1" 200 15340 "-" "Mozilla/5.0"
+@@ip - - [05/Nov/2024:11:36:44 +0000] "GET /mysite/check_mk/api/1.0/version HTTP/1.1" 401 32 "-" "curl/8.5.0"

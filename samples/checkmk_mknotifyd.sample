@@ -1,0 +1,5 @@
+2024-11-05 11:35:12 [20] [cmk.mknotifyd] spooler: accepted notification for @@host @@service
+2024-11-05 11:35:12 [20] [cmk.mknotifyd] spooler: forwarded to central site mysite
+2024-11-05 11:35:13 [20] [cmk.mknotifyd] connection to notification spooler is alive
+2024-11-05 11:36:00 [30] [cmk.mknotifyd] retrying deferred notification for @@host after temporary HEC error
+2024-11-05 11:36:05 [20] [cmk.mknotifyd] deferred notification succeeded for @@host

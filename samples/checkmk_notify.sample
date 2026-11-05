@@ -1,0 +1,8 @@
+2024-11-05 11:35:12,081 [20] [cmk.base.notify] Got raw notification (@@host;@@service) context with 52 variables
+2024-11-05 11:35:12,082 [20] [cmk.base.notify] Global rule 'Splunk HEC'...
+2024-11-05 11:35:12,084 [15] [cmk.base.notify]  -> matches
+2024-11-05 11:35:12,200 [20] [cmk.base.notify]      executing /omd/sites/mysite/local/share/check_mk/notifications/splunk_hec
+2024-11-05 11:35:12,410 [20] [cmk.base.notify]      Output: Successfully sent to Splunk HEC
+2024-11-05 11:35:12,411 [20] [cmk.base.notify]      Plugin exited with code 0
+2024-11-05 11:36:01,002 [20] [cmk.base.notify] Got raw notification (@@host) context with 41 variables
+2024-11-05 11:36:01,110 [20] [cmk.base.notify]      Output: Successfully sent to Splunk HEC

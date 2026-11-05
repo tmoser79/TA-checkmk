@@ -1,0 +1,4 @@
+2024-11-05 12:10:00 [20] [cmk.dcd] connector piggyback: discovery cycle started
+2024-11-05 12:10:04 [20] [cmk.dcd] created host @@host from piggyback data
+2024-11-05 12:10:05 [20] [cmk.dcd] connector piggyback: 3 hosts added, 0 removed
+2024-11-05 12:15:00 [30] [cmk.dcd] API connection timed out, will retry

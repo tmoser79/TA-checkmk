@@ -1,0 +1,16 @@
+[1730800001] SERVICE ALERT: @@host;@@service;CRITICAL;HARD;3;CRIT - 96.4% used (used: 48.2 GB of 50 GB)
+[1730800002] HOST ALERT: @@host;DOWN;HARD;1;CRIT - Packet loss 100%
+[1730800003] SERVICE NOTIFICATION: @@contact;@@host;@@service;CRITICAL;splunk_hec;CRIT - 96.4% used
+[1730800004] HOST NOTIFICATION: @@contact;@@host;DOWN;splunk_hec;CRIT - Packet loss 100%
+[1730800005] SERVICE NOTIFICATION RESULT: @@contact;@@host;@@service;OK;splunk_hec;Successfully sent to Splunk HEC
+[1730800006] HOST DOWNTIME ALERT: @@host;STARTED;Scheduled patch window
+[1730800007] SERVICE DOWNTIME ALERT: @@host;@@service;STARTED;Scheduled patch window
+[1730800008] HOST ACKNOWLEDGE ALERT: @@host;STARTED;@@contact;Investigating packet loss
+[1730800009] SERVICE ACKNOWLEDGE ALERT: @@host;@@service;STARTED;@@contact;Ticket INC-1234
+[1730800010] SERVICE FLAPPING ALERT: @@host;@@service;STARTED;Service has begun flapping
+[1730800011] CURRENT SERVICE STATE: @@host;@@service;OK;HARD;1;OK - 42% used
+[1730800012] CURRENT HOST STATE: @@host;UP;HARD;1;OK - Packet received via smart PING
+[1730800013] HOST ALERT: @@host;UNREACHABLE;SOFT;1;No route to host
+[1730800014] SERVICE ALERT: @@host;@@service;WARNING;SOFT;2;WARN - response time 1.8s
+[1730800015] SERVICE ALERT: @@host;@@service;OK;HARD;1;OK - 200 in 0.12s
+[1730800016] EXTERNAL COMMAND: ACKNOWLEDGE_SVC_PROBLEM;@@host;@@service;2;1;1;@@contact;Ticket INC-1234
