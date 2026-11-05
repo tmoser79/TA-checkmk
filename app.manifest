@@ -1,0 +1,68 @@
+{
+  "schemaVersion": "2.0.0",
+  "info": {
+    "title": "Splunk Add-on for Checkmk",
+    "id": {
+      "group": null,
+      "name": "TA-checkmk",
+      "version": "1.0.0"
+    },
+    "author": [
+      {
+        "name": "Checkmk Splunk TA",
+        "email": null,
+        "company": null
+      }
+    ],
+    "releaseDate": "2026-11-05",
+    "description": "Onboard Checkmk logs and monitoring alerts into Splunk. Parses CMC/Nagios history, site logs, and HEC JSON notifications, and maps them to the CIM Alerts data model.",
+    "classification": {
+      "intendedAudience": "IT Operations, Security, Observability",
+      "categories": ["IT Operations", "Monitoring"],
+      "developmentStatus": "Production/Stable"
+    },
+    "commonInformationModels": {
+      "Alerts": ">=5.0.0"
+    },
+    "license": {
+      "name": "Apache-2.0",
+      "text": "./LICENSE",
+      "uri": "https://www.apache.org/licenses/LICENSE-2.0"
+    },
+    "privacyPolicy": {
+      "name": null,
+      "text": null,
+      "uri": null
+    },
+    "releaseNotes": {
+      "name": "README",
+      "text": "./README.md",
+      "uri": null
+    }
+  },
+  "dependencies": {
+    "Splunk_SA_CIM": {
+      "version": ">=5.0.0",
+      "package": "splunk-common-information-model-cim",
+      "optional": true
+    }
+  },
+  "tasks": ["checkmk_rest"],
+  "inputGroups": null,
+  "incompatibleApps": null,
+  "platformRequirements": {
+    "splunk": {
+      "Enterprise": ">=9.1.0"
+    }
+  },
+  "supportedDeployments": [
+    "_standalone",
+    "_distributed",
+    "_search_head_clustering"
+  ],
+  "targetWorkloads": [
+    "_search_heads",
+    "_indexers",
+    "_forwarders"
+  ]
+}

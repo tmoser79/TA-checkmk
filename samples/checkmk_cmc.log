@@ -1,0 +1,4 @@
+2024-11-05 11:34:01 [cmc] logging initial states
+2024-11-05 11:34:02 [cmc] core starting...
+2024-11-05 11:35:00 [20] [cmk.base] Checkmk helper ready
+2024-11-05 11:36:12 [30] [cmk.base] Slow check: web01 Filesystem / took 12.4s

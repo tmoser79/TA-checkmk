@@ -1,0 +1,6 @@
+local/
+metadata/local.meta
+lookups/checkmk_severity_lookup.csv.bak
+*.pyc
+__pycache__/
+.DS_Store

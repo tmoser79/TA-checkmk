@@ -1,0 +1,3 @@
+2024-11-05 09:12:44 [20] [cmk.gui.security] login success user=omdadmin src=10.20.0.15
+2024-11-05 09:40:01 [30] [cmk.gui.security] login failure user=unknown src=10.20.0.99
+2024-11-05 10:01:17 [20] [cmk.gui.security] automation user used user=automation path=/check_mk/api/1.0/domain-types/service/collections/all

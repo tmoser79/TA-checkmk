@@ -1,0 +1,27 @@
+log_type,log_class,cim_type
+SERVICE ALERT,alert,alert
+HOST ALERT,alert,alert
+SERVICE NOTIFICATION,hs_notification,alert
+HOST NOTIFICATION,hs_notification,alert
+SERVICE NOTIFICATION RESULT,hs_notification,event
+HOST NOTIFICATION RESULT,hs_notification,event
+SERVICE NOTIFICATION PROGRESS,hs_notification,event
+HOST NOTIFICATION PROGRESS,hs_notification,event
+SERVICE DOWNTIME ALERT,alert,event
+HOST DOWNTIME ALERT,alert,event
+SERVICE ACKNOWLEDGE ALERT,alert,event
+HOST ACKNOWLEDGE ALERT,alert,event
+SERVICE FLAPPING ALERT,alert,event
+HOST FLAPPING ALERT,alert,event
+CURRENT SERVICE STATE,state,event
+CURRENT HOST STATE,state,event
+INITIAL SERVICE STATE,state,event
+INITIAL HOST STATE,state,event
+SERVICE ALERT HANDLER STARTED,alert_handlers,event
+SERVICE ALERT HANDLER STOPPED,alert_handlers,event
+HOST ALERT HANDLER STARTED,alert_handlers,event
+HOST ALERT HANDLER STOPPED,alert_handlers,event
+PASSIVE SERVICE CHECK,passivecheck,event
+PASSIVE HOST CHECK,passivecheck,event
+EXTERNAL COMMAND,ext_command,event
+TIMEPERIOD TRANSITION,state,event
