@@ -1,9 +1,11 @@
 #!/bin/sh
-# Build a Splunk-installable tarball of TA-checkmk (no Checkmk site plugin).
+# Build a Splunk-installable tarball of TA-checkmk.
+# The Checkmk notification script under checkmk/ is included so a Splunk admin
+# can copy it onto the Checkmk site.
 set -eu
 root=$(CDPATH= cd -- "$(dirname "$0")" && pwd)
 version=$(awk -F' = ' '/^version = / {print $2; exit}' "$root/default/app.conf")
-out="${1:-$root/../TA-checkmk-${version}.tar.gz}"
+out="${1:-$root/TA-checkmk-${version}.tar.gz}"
 tmp=$(mktemp -d)
 trap 'rm -rf "$tmp"' EXIT
 mkdir -p "$tmp/TA-checkmk"

@@ -5,8 +5,8 @@ Splunk Enterprise or Splunk Cloud. There is no Splunk-supported Checkmk TA on
 Splunkbase; this package is the knowledge layer, file inputs, optional REST
 poller, and CIM Alerts mapping.
 
-The Checkmk-side HEC notification plugin lives next to this folder in
-[`../checkmk_splunk_hec`](../checkmk_splunk_hec).
+The optional Checkmk HEC notification plugin ships in [`checkmk/`](checkmk/).
+Copy it onto the Checkmk site; the TA does not install it there for you.
 
 ## What it does
 
@@ -68,9 +68,12 @@ license-sensitive.
 
 ## Install the notification plugin on Checkmk
 
-See [`../checkmk_splunk_hec/README.md`](../checkmk_splunk_hec/README.md).
-Minimum: copy `splunk_hec` to `~/local/share/check_mk/notifications/`, make it
-executable, add a notification rule with HEC URL + token.
+Optional. Skip this if Splunk already reads the core history file; those lines
+already say who was notified.
+
+See [`checkmk/README.md`](checkmk/README.md). Minimum: copy `checkmk/notifications/splunk_hec`
+to `~/local/share/check_mk/notifications/`, make it executable, add a
+notification rule with HEC URL + token.
 
 ## CIM Alerts fields
 

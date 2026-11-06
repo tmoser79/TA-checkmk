@@ -15,7 +15,7 @@ from unittest import mock
 
 ROOT = Path(__file__).resolve().parents[1]
 BIN = ROOT / "bin"
-PLUGIN = Path(__file__).resolve().parents[2] / "checkmk_splunk_hec" / "notifications" / "splunk_hec"
+PLUGIN = ROOT / "checkmk" / "notifications" / "splunk_hec"
 sys.path.insert(0, str(BIN))
 
 import ta_checkmk_lib  # noqa: E402
@@ -269,6 +269,13 @@ class Packaging(unittest.TestCase):
         manifest = json.loads((ROOT / "app.manifest").read_text(encoding="utf-8"))
         self.assertEqual(manifest["info"]["id"]["name"], "TA-checkmk")
         self.assertIn("_search_head_clustering", manifest["supportedDeployments"])
+
+    def test_notification_plugin_ships_in_ta(self) -> None:
+        self.assertTrue(PLUGIN.is_file(), PLUGIN)
+        self.assertTrue(PLUGIN.read_text(encoding="utf-8").startswith("#!/usr/bin/env python3"))
+        ruleset = ROOT / "checkmk" / "rulesets" / "splunk_hec.py"
+        self.assertTrue(ruleset.is_file(), ruleset)
+        self.assertIn("name=\"splunk_hec\"", ruleset.read_text(encoding="utf-8"))
 
     def test_no_embedded_secrets(self) -> None:
         forbidden = re.compile(r"(sk_live_|AKIA[0-9A-Z]{16}|ghp_[A-Za-z0-9]{20,})")
