@@ -64,14 +64,13 @@ def history_stanza_extracts() -> dict[str, str]:
     return extracts
 
 
-class AlertSourcetype(unittest.TestCase):
+class JsonSourcetypes(unittest.TestCase):
     def test_search_time_json_without_indexed_extractions(self) -> None:
-        settings = props_stanza("checkmk:alert")
-        self.assertEqual(settings.get("KV_MODE"), "json")
-        self.assertEqual(settings.get("SHOULD_LINEMERGE"), "false")
-        self.assertNotIn("INDEXED_EXTRACTIONS", settings)
-        assigned = "\n".join(settings)
-        self.assertNotIn("INDEXED_EXTRACTIONS", assigned)
+        for name in ("checkmk:alert", "checkmk:ec", "checkmk:status"):
+            settings = props_stanza(name)
+            self.assertEqual(settings.get("KV_MODE"), "json", name)
+            self.assertEqual(settings.get("SHOULD_LINEMERGE"), "false", name)
+            self.assertNotIn("INDEXED_EXTRACTIONS", settings, name)
 
 
 class HistoryParsing(unittest.TestCase):
