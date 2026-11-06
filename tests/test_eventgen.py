@@ -93,6 +93,38 @@ class EventgenConfig(unittest.TestCase):
                 self.assertIn("dest", payload)
                 self.assertIn("vendor_severity", payload)
 
+    def test_timestamp_tokens_have_no_capture_group(self) -> None:
+        # Eventgen replaces capture group 1 and keeps the rest of the match.
+        for name, settings in self.stanzas.items():
+            for key, value in settings.items():
+                if not key.endswith(".replacementType") or value != "timestamp":
+                    continue
+                token_key = key[: -len("replacementType")] + "token"
+                token = settings[token_key]
+                self.assertEqual(
+                    re.compile(token).groups,
+                    0,
+                    f"[{name}] {token_key} must replace the whole timestamp",
+                )
+
+    def test_history_timestamp_token_keeps_single_brackets(self) -> None:
+        settings = self.stanzas["checkmk_history.sample"]
+        token = re.compile(settings["token.0.token"])
+        line = "[1730800002] HOST ALERT: web02;UNREACHABLE;SOFT;1;No route to host"
+        match = token.search(line)
+        self.assertIsNotNone(match)
+        assert match is not None
+        replaced = line[: match.start()] + "[1793999560]" + line[match.end() :]
+        self.assertEqual(
+            replaced,
+            "[1793999560] HOST ALERT: web02;UNREACHABLE;SOFT;1;No route to host",
+        )
+        parsed = ta_checkmk_lib.parse_history_line(replaced)
+        assert parsed is not None
+        self.assertEqual(parsed["dest"], "web02")
+        self.assertEqual(parsed["vendor_severity"], "UNREACHABLE")
+        self.assertEqual(parsed["history_epoch"], "1793999560")
+
     def test_history_sample_parses(self) -> None:
         lines = (self.samples / "checkmk_history.sample").read_text(encoding="utf-8").splitlines()
         parsed = [ta_checkmk_lib.parse_history_line(line) for line in lines if line.strip()]
