@@ -29,6 +29,25 @@ def load_plugin():
     return module
 
 
+def props_stanza(name: str) -> dict[str, str]:
+    props = (ROOT / "default" / "props.conf").read_text(encoding="utf-8")
+    settings: dict[str, str] = {}
+    in_stanza = False
+    for raw in props.splitlines():
+        line = raw.strip()
+        if not line or line.startswith("#"):
+            continue
+        if line.startswith("[") and line.endswith("]"):
+            if in_stanza:
+                break
+            in_stanza = line == f"[{name}]"
+            continue
+        if in_stanza and "=" in line:
+            key, _, value = line.partition("=")
+            settings[key.strip()] = value.strip()
+    return settings
+
+
 def history_stanza_extracts() -> dict[str, str]:
     props = (ROOT / "default" / "props.conf").read_text(encoding="utf-8")
     in_history = False
@@ -43,6 +62,16 @@ def history_stanza_extracts() -> dict[str, str]:
         name, _, pattern = line.partition(" = ")
         extracts[name[len("EXTRACT-") :]] = pattern
     return extracts
+
+
+class AlertSourcetype(unittest.TestCase):
+    def test_search_time_json_without_indexed_extractions(self) -> None:
+        settings = props_stanza("checkmk:alert")
+        self.assertEqual(settings.get("KV_MODE"), "json")
+        self.assertEqual(settings.get("SHOULD_LINEMERGE"), "false")
+        self.assertNotIn("INDEXED_EXTRACTIONS", settings)
+        assigned = "\n".join(settings)
+        self.assertNotIn("INDEXED_EXTRACTIONS", assigned)
 
 
 class HistoryParsing(unittest.TestCase):
